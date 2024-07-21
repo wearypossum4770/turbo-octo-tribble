@@ -5,6 +5,11 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  exportPathMap: function(){
+    return {
+      '/': { page: '/'}
+    }
+  },
   trailingSlash: true,
 }
 
