@@ -1,8 +1,8 @@
-export default function About(){
-    return (
-<main>
-<h1>About Page</h1>
-<p>Under construction</p>
-</main>
-    )
+export default function About() {
+  return (
+    <main>
+      <h1>About Page</h1>
+      <p>Under construction</p>
+    </main>
+  );
 }
