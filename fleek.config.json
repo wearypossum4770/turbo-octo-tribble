@@ -2,7 +2,7 @@
   "sites": [
     {
       "slug": "shrilling-battery-deafening",
-      "distDir": "public"
+      "distDir": "out"
     }
   ]
 }
