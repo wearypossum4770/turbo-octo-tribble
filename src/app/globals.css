@@ -1,25 +1,87 @@
 @import url(./main.css);
-
+@import url(./feature-sidebar.css);
+@import url(./feature-card.css);
+@import url(./tags.css);
 :root {
+  --mustard-yellow: #c6b215;
+  --violet-blue-background: #3d4db63d;
+  --violet-blue: #3745a4;
+  --slate-blue: #5d60cc;
+  --gray-blue: #656d7b;
+  --slate-gray-dark: #4d4c59;
+  --dark-deep-blue: #1a2634;
+  --slate-gray-medium: #76757e;
+  --pale-slate-gray: #eaebea;
+  --polished-pine: #3e9991;
+  --white-smoke: #f7f7f7;
+  --platinum: #e1e4e8;
+  --bs-border-color: #dee2e6;
+  --bs-link-color: #6837fc;
+  --bs-link-hover-color: #6837fc;
+  --bs-code-color: #ffffff;
+  --bs-highlight-bg: #fff3cd;
+  --bs-blue: #0d6efd;
+  --bs-indigo: #6610f2;
+  --bs-purple: #6f42c1;
+  --bs-pink: #d63384;
+  --bs-red: #dc3545;
+  --bs-orange: #fd7e14;
+  --bs-yellow: #ffc107;
+  --bs-green: #198754;
+  --bs-teal: #20c997;
+  --bs-cyan: #0dcaf0;
+  --bs-black: #000;
+  --bs-white: #fff;
+  --bs-gray: #6c757d;
+  --bs-gray-dark: #343a40;
+  --bs-gray-100: #f8f9fa;
+  --bs-gray-200: #e9ecef;
+  --bs-gray-300: #dee2e6;
+  --bs-gray-400: #ced4da;
+  --bs-gray-500: #adb5bd;
+  --bs-gray-600: #6c757d;
+  --bs-gray-700: #495057;
+  --bs-gray-800: #343a40;
+  --bs-gray-900: #212529;
+  --bs-light200: #fafafb;
+  --bs-primary: #6837fc;
+  --bs-danger: #ef4d56;
+  --bs-success: #27ab95;
+  --bs-info: #0aaddf;
+  --bs-warning: #ff9f43;
+  --bs-dark: #1a2634;
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 }
-
+/* 
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
-}
+} */
 
 html {
-  height: 100vh;
+  font-size: 100%;
+  word-wrap: break-word;
 }
-
 body {
   height: 100vh;
+  margin: 0;
+}
+@media screen and (min-width: 320px) {
+  html {
+    font-size: calc(16px + 6 * ((100vw - 320px) / 680));
+  }
+}
+@media screen and (min-width: 1000px) {
+  html {
+    font-size: 22px;
+  }
+}
+body.gradient {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
@@ -27,4 +89,10 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+}
+h1 {
+  font-size: 1.8rem;
+}
+h2 {
+  font-size: 1.5rem;
 }
