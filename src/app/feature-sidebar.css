@@ -1,0 +1,48 @@
+aside.feature-flag-sidebar {
+  background-color: var(--pale-slate-gray);
+  margin-right: calc(1.5rem + 1.5625vw);
+  padding: 0 0 0 0.5rem;
+  font-weight: 500;
+}
+details > summary {
+  color: var(--slate-gray-dark);
+}
+form.create-environment {
+  margin: 1rem 0;
+  font-size: 0.75rem;
+  color: var(--polished-pine);
+}
+form.create-environment > label {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+form.create-environment > label > input {
+  background-color: unset;
+  border: none;
+  color: green;
+}
+ul.environment-list > li[data-is-link-active] {
+  padding: 4px 10px;
+}
+ul.environment-list > li[data-is-link-active] > a {
+  text-decoration: none;
+}
+ul.environment-list > li[data-is-link-active="false"] > a {
+  color: #76757e;
+}
+ul.environment-list > li[data-is-link-active="true"] > a {
+  color: #fff;
+}
+
+ul.environment-list > li[data-is-link-active="true"] {
+  background-color: var(--slate-blue);
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+ul.environment-list {
+  list-style-type: none;
+  padding-left: 5px;
+}

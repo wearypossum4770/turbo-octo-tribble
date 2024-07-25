@@ -1,0 +1,12 @@
+main.feature-flag-layout {
+  display: grid;
+  height: 100%;
+  max-width: 900px;
+  margin: 0 10px 0 0;
+  grid-template-columns: 40% auto;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}

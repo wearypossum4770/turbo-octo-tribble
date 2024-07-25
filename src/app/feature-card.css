@@ -1,0 +1,83 @@
+div.feature-creation > span.feature-creation-message {
+  font-size: 0.8125rem;
+  padding-right: 2px;
+  color: rgb(198, 178, 21);
+}
+div.feature-creation {
+  display: flex;
+  align-items: center;
+}
+
+article.feature-details-management > header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0.5rem;
+  max-width: 900px;
+}
+ul.feature-tag-list {
+  list-style-type: none;
+  margin: 0;
+}
+ul.feature-tag-list > li.feature-tag {
+  background-color: var(--violet-blue-background);
+  padding: 0.15rem 0.3rem;
+  border-radius: 4px;
+  color: var(--violet-blue);
+  font-size: 0.5rem;
+  cursor: pointer;
+}
+
+article.feature-details-management > p {
+  background-color: var(--white-smoke);
+}
+article.feature-details-management > p {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  color: var(--dark-deep-blue);
+}
+
+article.feature-details-management > main {
+  padding: 5px 10px;
+}
+article.feature-details-management > main > h4 {
+  margin: unset;
+}
+article.feature-details-management {
+  border: 1px solid var(--platinum);
+}
+
+div.feature-flag-form-group {
+  color: var(--bs-gray);
+}
+div.feature-flag-form-group > input[type="search" i]:focus {
+  border: none;
+}
+div.feature-flag-form-group > input[type="search" i] {
+  border-radius: 4px;
+  padding: 5px 10px;
+  border: 0.5px dashed black;
+}
+span.feature-description {
+  display: block;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--gray-blue);
+  font-weight: normal;
+}
+
+button.copy-to-clipboard {
+  background-image: url(/clipboard-copy.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  padding: 10px;
+  margin: 0 10px;
+  fill: rgb(101, 109, 123);
+  border: none;
+}
+
+button.copy-to-clipboard:hover {
+  cursor: pointer;
+}
