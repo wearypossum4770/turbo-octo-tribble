@@ -1,10 +1,16 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "ESNext",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
+    "sourceMap": true,
+    "removeComments": true,
+    "experimentalDecorators": true,
+    "outDir": "./out",
+    "baseUrl": "./",
+    "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
