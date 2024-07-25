@@ -1,0 +1,14 @@
+[
+  {
+    "id": 2819,
+    "label": "CONSENT",
+    "_color": "#3d4db6",
+    "color": "violet",
+    "description": null,
+    "project": 12302,
+    "uuid": "a02e2c52-e826-41fd-b310-7a15a4468d83",
+    "is_permanent": false,
+    "is_system_tag": false,
+    "type": "NONE"
+  }
+]
