@@ -12,6 +12,9 @@ const nextConfig = {
   devIndicators: {
     buildActivityPosition: 'bottom-right',
   },
+  httpAgentOptions: {
+    keepAlive: false,
+  },
   trailingSlash: true,
 }
 

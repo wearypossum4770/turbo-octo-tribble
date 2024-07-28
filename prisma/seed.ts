@@ -1,20 +1,29 @@
-import { PrismaClient, Prisma } from '@prisma/client'
-
+const { PrismaClient, Prisma } =require('@prisma/client')
 const prisma = new PrismaClient()
 
 
 
-const main = async <T>(seeds: Array<Promise<T>>) => {
+const seed = async () => {
     console.log('start seeding ...')
-    
+    const {seedEnvironment }= await import('@/models/environment')
+    return await Promise.all([seedEnvironment(prisma)])
 }
 
-main<string>([Promise.resolve('')])
 
-.then(()=> {})
-.then(()=>Promise.resolve(prisma.$disconnect()))
-.catch(err=> {
-    console.log('\n\nError occured, terminating the process\n\n', err)
-    prisma.$disconnect()
+process.on('beforeExit', (code) => {
+    console.log('Process beforeExit event with code: ', code);
+  });
+  
+  process.on('exit', (code) => {
+    console.log('Process exit event with code: ', code);
+  });
+seed()
+.then(async () => {
+    await prisma.$disconnect()
+    process.exit()
+  })
+  .catch(async (e) => {
+    console.error(e)
+    await prisma.$disconnect()
     process.exit(1)
-})
+  })

@@ -1,24 +1,94 @@
 datasource db {
   provider = "sqlite"
-  url      = env("DATABASE_URL")
+  url      = "file:./data.db?connection_limit=1"
 }
 
 generator client {
   provider = "prisma-client-js"
 }
 
+model Banner {
+  id Int  @id @default(autoincrement())
+  bannerColor String
+  bannerText String
+  description String
+  priority String
+  environment Environment @relation(fields: [environmentId], references: [id])
+  environmentId Int
+}
+model Environment {
+  id    Int    @id 
+  label String
+  environment String @unique
+  isEnabled Boolean @default(true)
+  projectId Int
+  banner Banner[]
+  organizationId Int
+  configurations EnvironmentConfiguration[]
+  
+}
+model EnvironmentConfiguration {
+  id    Int    @id @default(autoincrement())
+  environment Environment @relation(fields:[environmentId], references: [id])
+  environmentId Int
+  label String
+  href String
+}
+
 model User {
   id    Int    @id @default(autoincrement())
   email String @unique
-  name  String
+  profileViews Int              @default(0)
+  firstName String
+  middleName String?
+  lastName String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  profile Profile?
+
+}
+model Profile {
+  id     Int  @id @default(autoincrement())
+  user   User @relation(fields: [userId], references: [id])
+  userId Int  @unique // relation scalar field (used in the `@relation` attribute above)
+  bio    String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  isActive Boolean @default(true)
   posts Post[]
 }
-
 model Post {
   id        Int     @id @default(autoincrement())
   published Boolean @default(false)
   title     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
   content   String?
-  author    User?   @relation(fields: [authorId], references: [id])
-  authorId  Int?
+  author    Profile   @relation(fields: [authorId], references: [id])
+  authorId  Int
+  views     Int     @default(0)
+  likes     Int     @default(0)
+  postCategories PostCategories[]
+  comments Comment[]
+}
+model PostCategories {
+  post       Post     @relation(fields: [postId], references: [id])
+  postId     Int
+  category   Category @relation(fields: [categoryId], references: [id])
+  categoryId Int
+
+  @@id([postId, categoryId])
+}
+model Category {
+  id             Int              @id @default(autoincrement())
+  name           String
+  postCategories PostCategories[]
+}
+model Comment {
+  id     Int  @id @default(autoincrement())
+  post Post @relation(fields: [postId], references: [id])
+  postId Int @unique
+  writtenBy      Comment?   @relation("CommentToComment", fields: [writtenById], references: [id])
+  writtenById    Int?
+  replies     Comment[]  @relation("CommentToComment")
 }
