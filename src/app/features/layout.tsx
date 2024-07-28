@@ -41,15 +41,15 @@ const FeatureFlagLayout = ({ children }: { children: React.ReactNode }) => {
             <details className="environment-container" key={sidebar.id}>
               <summary>{sidebar.label}</summary>
               <ul className="environment-list">
-                {sidebar.features?.map((feature) => (
+                {sidebar.configurations?.map((config) => (
                   <li
-                    key={feature.id}
-                    data-is-link-active={setActiveLink(feature, sidebar)}
+                    key={config.id}
+                    data-is-link-active={setActiveLink(config, sidebar)}
                   >
                     <Link
-                      href={`/features/${sidebar.environment}/${feature.href}`}
+                      href={`/features/${sidebar.environment}/${config.href}`}
                     >
-                      {feature.label}
+                      {config.label}
                     </Link>
                   </li>
                 ))}

@@ -1,9 +1,9 @@
 "use client";
-
 import { usePathname } from "next/navigation";
 import { determineEnvironment } from "@/lib/helpers";
 import { useEffect, useState } from "react";
-export default function FeatureFlagEnvironment() {
+
+export default function FeatureEnvironment(props: React.PropsWithChildren) {
   const [environment, setEnvironment] = useState("");
   const ads = {
     vendor: "",
@@ -11,6 +11,7 @@ export default function FeatureFlagEnvironment() {
     id: "",
     selector: "amp-ad",
   };
+  console.log(props);
   const pathname = usePathname();
   useEffect(() => {
     setEnvironment(pathname.split("/").filter(Boolean).pop() || "");
