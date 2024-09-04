@@ -1,0 +1,33 @@
+# .github/workflows/[your_workflow].yml
+
+jobs:
+  publish:
+    ...
+    permissions:
+      contents: write
+
+
+
+- name:  'Automated Version Bump'
+  uses:  'phips28/gh-action-bump-version@master'
+  env:
+    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  with:
+    version-type: 'minor'r
+    default: prerelease
+    preid: 'prc'
+    tag-prefix: 'v'
+    tag-suffix: '-beta'
+    skip-tag: 'true'
+    skip-commit: 'true'
+    skip-push: 'true'
+    PACKAGEJSON_DIR:  'frontend'
+    PACKAGE_FILENAME:  'app.json'
+    target-branch: 'master'
+    commit-message: 'CI: bumps version to {{version}} [skip ci]'
+e
+    minor-wording:  'add,Adds,new'
+    major-wording:  'MAJOR,cut-major'
+    patch-wording:  'patch,fixes'     # Providing patch-wording will override commits
+                                      # defaulting to a patch bump.
+    rc-wording:     'RELEASE,alpha'
